@@ -11,10 +11,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class TaskrSsoSamlApplication {
+public class TaskrSsoKeycloakApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TaskrSsoSamlApplication.class, args);
+		SpringApplication.run(TaskrSsoKeycloakApplication.class, args);
 	}
 
 	@Bean

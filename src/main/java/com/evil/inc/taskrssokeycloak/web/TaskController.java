@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/")
+@RequestMapping("/tasks")
 public class TaskController {
     private final UserService userService;
     private final TaskService taskService;
@@ -38,12 +38,12 @@ public class TaskController {
         //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         task.setUser(userService.getByUsername("thejohndoe"));
         taskService.addTask(task);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/tasks");
     }
 
     @PostMapping("/delete/{taskId}")
     public ModelAndView deleteTask(@PathVariable long taskId){
         taskService.deleteTaskById(taskId);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/tasks");
     }
 }
