@@ -24,6 +24,5 @@ public class Task extends AbstractEntity{
     private final LocalDateTime creationDateTime = LocalDateTime.now();
     @Enumerated(value = EnumType.STRING)
     private Priority priority;
-    @ManyToOne
-    private User user;
+    private String userName;
 }

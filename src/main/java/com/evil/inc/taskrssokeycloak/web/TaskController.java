@@ -3,7 +3,6 @@ package com.evil.inc.taskrssokeycloak.web;
 import com.evil.inc.taskrssokeycloak.domain.Priority;
 import com.evil.inc.taskrssokeycloak.domain.Task;
 import com.evil.inc.taskrssokeycloak.service.TaskService;
-import com.evil.inc.taskrssokeycloak.service.UserService;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Controller;
@@ -14,29 +13,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.Principal;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/tasks")
 public class TaskController {
-    private final UserService userService;
     private final TaskService taskService;
 
     @GetMapping
-    public ModelAndView tasks(){
-        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    public ModelAndView tasks(Principal principal){
         ModelAndView modelAndView = new ModelAndView("tasks");
-//        modelAndView.addObject("userName", authentication.getName());
-        modelAndView.addObject("userName", "thejohndoe");
-        modelAndView.addObject("userTasks", taskService.getTasksByUsername("thejohndoe"));
+        modelAndView.addObject("userName", principal.getName());
+        modelAndView.addObject("userTasks", taskService.getTasksByUsername(principal.getName()));
         modelAndView.addObject("priorities", Priority.values());
         modelAndView.addObject("task", new Task());
         return modelAndView;
     }
 
     @PostMapping("/add")
-    public ModelAndView addTask(@ModelAttribute Task task){
-        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        task.setUser(userService.getByUsername("thejohndoe"));
+    public ModelAndView addTask(@ModelAttribute Task task, Principal principal){
+        task.setUserName(principal.getName());
         taskService.addTask(task);
         return new ModelAndView("redirect:/tasks");
     }

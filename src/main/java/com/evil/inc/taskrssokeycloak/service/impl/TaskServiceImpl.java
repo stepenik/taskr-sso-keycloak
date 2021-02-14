@@ -1,9 +1,7 @@
 package com.evil.inc.taskrssokeycloak.service.impl;
 
 import com.evil.inc.taskrssokeycloak.domain.Task;
-import com.evil.inc.taskrssokeycloak.domain.User;
 import com.evil.inc.taskrssokeycloak.repository.TaskRepository;
-import com.evil.inc.taskrssokeycloak.repository.UserRepository;
 import com.evil.inc.taskrssokeycloak.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,7 +14,6 @@ import java.util.List;
 @RequiredArgsConstructor
 class TaskServiceImpl implements TaskService {
     private final TaskRepository taskRepository;
-    private final UserRepository userRepository;
 
     @Transactional
     @Override
@@ -27,8 +24,7 @@ class TaskServiceImpl implements TaskService {
     @Transactional
     @Override
     public List<Task> getTasksByUsername(String username) {
-        User user = userRepository.findByUsername(username);
-        List<Task> allByUserId = taskRepository.findAllByUserId(user.getId());
+        List<Task> allByUserId = taskRepository.findAllByUserName(username);
         allByUserId.sort(Comparator.comparing(Task::getCreationDateTime).reversed());
         return allByUserId;
     }

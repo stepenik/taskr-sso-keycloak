@@ -38,7 +38,15 @@
 <button type="button" class="btn btn-primary" style="margin-left: 15px; margin-bottom: 15px;" data-toggle="modal"
         data-target="#addTask">Add task
 </button>
-<ul>
+<div th:if="${userTasks.isEmpty()}">
+    <div style="display: flex; align-content: center; justify-content: center;">
+        <div class="alert alert-info" role="alert"
+             style="margin-left: 20px; margin-right: 20px; margin-top: 20px;">
+            <h3>No tasks yet? Try adding them.</h3>
+        </div>
+    </div>
+</div>
+<ul th:if="${!userTasks.isEmpty()}">
     <li th:each="task : ${userTasks}">
         <div class="alert alert-warning" role="alert" style="margin-right: 30px;">
             <div style="display: flex; margin-left: auto;">
