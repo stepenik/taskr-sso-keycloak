@@ -1,10 +1,10 @@
-package com.evil.inc.taskrssosaml;
+package com.evil.inc.taskrssokeycloak;
 
-import com.evil.inc.taskrssosaml.domain.Task;
-import com.evil.inc.taskrssosaml.domain.Priority;
-import com.evil.inc.taskrssosaml.domain.User;
-import com.evil.inc.taskrssosaml.repository.TaskRepository;
-import com.evil.inc.taskrssosaml.repository.UserRepository;
+import com.evil.inc.taskrssokeycloak.domain.Task;
+import com.evil.inc.taskrssokeycloak.domain.Priority;
+import com.evil.inc.taskrssokeycloak.domain.User;
+import com.evil.inc.taskrssokeycloak.repository.TaskRepository;
+import com.evil.inc.taskrssokeycloak.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

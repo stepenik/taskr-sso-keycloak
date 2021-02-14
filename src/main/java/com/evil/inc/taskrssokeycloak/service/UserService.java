@@ -1,6 +1,6 @@
-package com.evil.inc.taskrssosaml.service;
+package com.evil.inc.taskrssokeycloak.service;
 
-import com.evil.inc.taskrssosaml.domain.User;
+import com.evil.inc.taskrssokeycloak.domain.User;
 
 public interface UserService {
     User saveUser(User user);

@@ -1,4 +1,4 @@
-package com.evil.inc.taskrssosaml.domain;
+package com.evil.inc.taskrssokeycloak.domain;
 
 public enum Priority {
     HIGH, MEDIUM, LOW

@@ -1,14 +1,12 @@
-package com.evil.inc.taskrssosaml.web;
+package com.evil.inc.taskrssokeycloak.web;
 
-import com.evil.inc.taskrssosaml.domain.Priority;
-import com.evil.inc.taskrssosaml.domain.Task;
-import com.evil.inc.taskrssosaml.service.TaskService;
-import com.evil.inc.taskrssosaml.service.UserService;
+import com.evil.inc.taskrssokeycloak.domain.Priority;
+import com.evil.inc.taskrssokeycloak.domain.Task;
+import com.evil.inc.taskrssokeycloak.service.TaskService;
+import com.evil.inc.taskrssokeycloak.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,10 +23,11 @@ public class TaskController {
 
     @GetMapping
     public ModelAndView tasks(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         ModelAndView modelAndView = new ModelAndView("tasks");
-        modelAndView.addObject("userName", authentication.getName());
-        modelAndView.addObject("userTasks", taskService.getTasksByUsername(authentication.getName()));
+//        modelAndView.addObject("userName", authentication.getName());
+        modelAndView.addObject("userName", "thejohndoe");
+        modelAndView.addObject("userTasks", taskService.getTasksByUsername("thejohndoe"));
         modelAndView.addObject("priorities", Priority.values());
         modelAndView.addObject("task", new Task());
         return modelAndView;
@@ -36,8 +35,8 @@ public class TaskController {
 
     @PostMapping("/add")
     public ModelAndView addTask(@ModelAttribute Task task){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        task.setUser(userService.getByUsername(authentication.getName()));
+        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        task.setUser(userService.getByUsername("thejohndoe"));
         taskService.addTask(task);
         return new ModelAndView("redirect:/");
     }

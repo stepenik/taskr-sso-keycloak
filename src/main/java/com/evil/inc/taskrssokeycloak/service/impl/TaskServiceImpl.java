@@ -1,10 +1,10 @@
-package com.evil.inc.taskrssosaml.service.impl;
+package com.evil.inc.taskrssokeycloak.service.impl;
 
-import com.evil.inc.taskrssosaml.domain.Task;
-import com.evil.inc.taskrssosaml.domain.User;
-import com.evil.inc.taskrssosaml.repository.TaskRepository;
-import com.evil.inc.taskrssosaml.repository.UserRepository;
-import com.evil.inc.taskrssosaml.service.TaskService;
+import com.evil.inc.taskrssokeycloak.domain.Task;
+import com.evil.inc.taskrssokeycloak.domain.User;
+import com.evil.inc.taskrssokeycloak.repository.TaskRepository;
+import com.evil.inc.taskrssokeycloak.repository.UserRepository;
+import com.evil.inc.taskrssokeycloak.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

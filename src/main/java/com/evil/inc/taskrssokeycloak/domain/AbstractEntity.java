@@ -1,4 +1,4 @@
-package com.evil.inc.taskrssosaml.domain;
+package com.evil.inc.taskrssokeycloak.domain;
 
 import lombok.Data;
 

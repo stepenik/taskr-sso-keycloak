@@ -1,6 +1,6 @@
-package com.evil.inc.taskrssosaml.service;
+package com.evil.inc.taskrssokeycloak.service;
 
-import com.evil.inc.taskrssosaml.domain.Task;
+import com.evil.inc.taskrssokeycloak.domain.Task;
 
 import java.util.List;
 

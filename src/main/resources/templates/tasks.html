@@ -32,13 +32,13 @@
 <div class="alert alert-info" role="alert">
     <div style="display: flex">
         <h3>taskr - hey, <span th:text="${userName}"></span>! your tasks at the moment are : </h3>
-        <form class="left" th:action="@{/saml/logout}" method="get" style="margin-left: auto; margin-right: 5px;">
-                <input class="btn btn-primary" type="submit" value="Global Logout" data-toggle="tooltip" data-placement="bottom" title="Log out from SSOCircle"/>
-        </form>
-        <form class="left" th:action="@{/saml/logout}" method="get">
-            <input type="hidden" name="local" value="true"/>
-            <input class="btn btn-secondary" type="submit" value="Local Logout" data-toggle="tooltip" data-placement="bottom" title="Log out from taskr"/>
-        </form>
+<!--        <form class="left" th:action="@{/saml/logout}" method="get" style="margin-left: auto; margin-right: 5px;">-->
+<!--                <input class="btn btn-primary" type="submit" value="Global Logout" data-toggle="tooltip" data-placement="bottom" title="Log out from SSOCircle"/>-->
+<!--        </form>-->
+<!--        <form class="left" th:action="@{/saml/logout}" method="get">-->
+<!--            <input type="hidden" name="local" value="true"/>-->
+<!--            <input class="btn btn-secondary" type="submit" value="Local Logout" data-toggle="tooltip" data-placement="bottom" title="Log out from taskr"/>-->
+<!--        </form>-->
     </div>
 </div>
 <button type="button" class="btn btn-primary" style="margin-left: 15px; margin-bottom: 15px;" data-toggle="modal"
